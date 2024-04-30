@@ -31,10 +31,9 @@ class Cuerpo:
         r = math.sqrt(pow(d1, 2) + pow(d2, 2))
 
         force = G * self.masa *  cuerpo.masa/ pow(r, 2)
-        force_2 = "{:.1e}".format(force)
-        print("fuerza:", force_2)
+        print("fuerza:", force)
         print("masa:", self.masa)
-        aceleracion = (force_2 / self.masa) * pow(10,12.1)
+        aceleracion = force / self.masa * pow(10,12.1)
         print("acel:",aceleracion)
         
         angulo = math.atan2(d2, d1)
