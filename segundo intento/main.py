@@ -2,10 +2,15 @@ import tkinter as tk
 import time
 from cuerpo import Cuerpo
 
+def actualizardatos(label, cuerpo2, cuerpo3):
+    datos = 0
+
 def main():
     ventana = tk.Tk()
     ventana.title("Simulación de partícula")
     lienzo = tk.Canvas(ventana, width=900, height=700)
+    label = tk.Label(ventana, text='Datos:')
+    label.pack(side="top", anchor="nw", padx=10, pady=10)
     lienzo.pack()
 
     cuerpo = Cuerpo(
@@ -24,7 +29,7 @@ def main():
         270, 
         245, 
         masa = 10,
-        velocidad_x=5, 
+        velocidad_x=3, 
         velocidad_y=1, 
         aceleracion_x=0, 
         aceleracion_y=0,   
@@ -34,8 +39,8 @@ def main():
         lienzo, 
         270, 
         245, 
-        masa = 100,
-        velocidad_x=3, 
+        masa = 70,
+        velocidad_x=4, 
         velocidad_y=1, 
         aceleracion_x=0, 
         aceleracion_y=0,   
@@ -44,9 +49,8 @@ def main():
     while True:
         cuerpo2.update_position(cuerpo)
         cuerpo3.update_position(cuerpo)
-        print(cuerpo2.masa)
-        print(cuerpo3.masa)
         ventana.update()
+        actualizardatos(label, cuerpo2, cuerpo3)
         time.sleep(0.05)
 
 if __name__ == "__main__":

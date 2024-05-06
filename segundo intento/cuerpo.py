@@ -4,7 +4,7 @@ import math
 class Cuerpo:
     def __init__(self, canvas, x, y, masa, velocidad_x, velocidad_y, aceleracion_x, aceleracion_y):
         self.canvas = canvas
-        self.id = canvas.create_oval(x, y, x+10, y+10, fill="black")
+        self.id = canvas.create_oval(x, y, x+masa/10, y+masa/10, fill="black")
         self.masa = masa
         self.x = x
         self.y = y
@@ -14,7 +14,7 @@ class Cuerpo:
         self.aceleracion_y = aceleracion_y
     
     def update_position(self, cuerpo):
-        self.body1 = self.canvas.create_line(self.x, self.y, self.x+self.velocidad_x, self.y+self.velocidad_y, fill='blue')
+        self.body1 = self.canvas.create_line(self.x, self.y, self.x-self.velocidad_x, self.y-self.velocidad_y, fill='blue')
         self.aceleracion_x, self.aceleracion_y = self.gravityforce(cuerpo)
 
         self.velocidad_x += self.aceleracion_x
